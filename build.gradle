@@ -11,7 +11,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
-    baseName = 'fint-class-member-filter'
+    baseName = 'fint-class-field-filter'
     version = version
 }
 
