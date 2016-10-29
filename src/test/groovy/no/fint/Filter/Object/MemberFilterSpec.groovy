@@ -1,6 +1,6 @@
-package no.fint.Filter.Object
+package no.fint.filter.object
 
-import no.fint.Filter.Object.TestModel.Student
+import no.fint.filter.object.model.Student
 import spock.lang.Specification
 
 
@@ -17,6 +17,10 @@ class MemberFilterSpec extends Specification {
         filteredStudent = memberFilter.filter(student, members)
 
         then:
+        filteredStudent.getFirstName() == "Ole"
+        filteredStudent.getLastName() == null
+        filteredStudent.getMobile() == null
         filteredStudent.getAge() == 15
+
     }
 }
