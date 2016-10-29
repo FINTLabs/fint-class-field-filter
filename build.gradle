@@ -1,0 +1,27 @@
+group 'no.fint'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'fint-class-member-filter'
+    version = version
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile('org.projectlombok:lombok:1.16.10')
+
+    testCompile('org.spockframework:spock-spring:1.0-groovy-2.4')
+}
