@@ -1,4 +1,4 @@
-package no.fint.filter.object.model;
+package test;
 
 
 

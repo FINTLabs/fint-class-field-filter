@@ -1,4 +1,4 @@
-package no.fint.filter.object;
+package test;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
