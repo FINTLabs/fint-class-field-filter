@@ -10,10 +10,9 @@ class FieldFilterSpec extends Specification {
         def fieldFilter = new FieldFilter()
         def student = new Student(firstName: "Ole", lastName: "Olsen", mobile: "99999999", age: 15)
         def allowedFieldList = ["firstName", "age"]
-        def filteredStudent = new Student()
 
         when:
-        filteredStudent = fieldFilter.filter(student, allowedFieldList)
+        def filteredStudent = fieldFilter.filter(student, allowedFieldList)
 
         then:
         filteredStudent.getFirstName() == "Ole"
@@ -31,10 +30,9 @@ class FieldFilterSpec extends Specification {
         def student3 = new Student(firstName: "Ole3", lastName: "Olsen3", mobile: "99999997", age: 13)
         def studentList = [student1, student2, student3]
         def allowedFieldList = ["firstName", "age"]
-        def filteredStudentList = []
 
         when:
-        filteredStudentList = fieldFilter.filterList(studentList, allowedFieldList)
+        def filteredStudentList = fieldFilter.filterList(studentList, allowedFieldList)
 
         then:
         filteredStudentList[0].getFirstName() == "Ole1"

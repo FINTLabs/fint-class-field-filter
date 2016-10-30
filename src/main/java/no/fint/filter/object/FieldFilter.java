@@ -1,40 +1,32 @@
 package no.fint.filter.object;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FieldFilter {
 
-    public Object filter(Object o, List<String> fieldList) throws IllegalAccessException, InstantiationException {
+    @SuppressWarnings("unchecked")
+    public <T> T filter(T o, List<String> fieldList) {
+        try {
+            Class oClass = o.getClass();
+            Field[] fields = oClass.getDeclaredFields();
+            Object filteredObj = oClass.newInstance();
 
-        Class oClass = o.getClass();
-        Field[] fields = oClass.getDeclaredFields();
-        Object filteredObj = oClass.newInstance();
-
-        for (int i = 0; i < fields.length; i++) {
-            if (fieldList.contains(fields[i].getName())) {
-                fields[i].setAccessible(true);
-                fields[i].set(filteredObj, fields[i].get(o));
+            for (Field field : fields) {
+                if (fieldList.contains(field.getName())) {
+                    field.setAccessible(true);
+                    field.set(filteredObj, field.get(o));
+                }
             }
-        }
 
-        return filteredObj;
+            return (T) filteredObj;
+        } catch (IllegalAccessException | InstantiationException e) {
+            throw new RuntimeException("Unable to filter " + o.getClass(), e);
+        }
     }
 
-    public List<Object> filterList(List<Object> objectList, List<String> fieldList)  {
-
-        List<Object> filteredObjectList = new ArrayList();
-        objectList.stream().forEach(o -> {
-            try {
-                filteredObjectList.add(filter(o, fieldList));
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            }
-        });
-
-        return filteredObjectList;
+    public <T> List<T> filterList(List<T> objectList, List<String> fieldList) {
+        return objectList.stream().map(obj -> filter(obj, fieldList)).collect(Collectors.toList());
     }
 }
