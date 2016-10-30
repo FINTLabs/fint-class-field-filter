@@ -1,5 +1,6 @@
-package test
+package no.fint.filter.object
 
+import no.fint.filter.object.model.Student
 import spock.lang.Specification
 
 class FieldFilterSpec extends Specification {
