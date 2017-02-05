@@ -1,8 +1,8 @@
 language: java
 jdk:
- - oraclejdk8
+- oraclejdk8
 install: true
-script:
- ./gradlew build
+script: ./gradlew build
 notifications:
- slack: fintd:vWWYpAavtMrWpJEZtyuVxdkL
+  slack:
+    secure: oRPdsh6AoMiO+QFaNUoylc39O+zOYDFqeIe5T/9noYdiPN7TA9mlIJGKdEko/8nLiruP9ZLTlrSeHUUjtkCdV1AzRrSYx6MvuSB6L89jXy1PVBR5QPq0SieK3dmhO/4EnJuFtuoGTDCFlvVsw4MkXTThhqDoTjngBL1eCkvKGmv1bTWLRQjrZ6bxy8zJf4sTK3Zq1WQO29SLQQagYhSTa4QFPzF4gO9odum9dNFId8Q/i7Zlf+/SYZMttkTWYgUNZyhvycmMYlyA1vLNiMzXXt6MKFADaNqpg3ptQEf2zaULZ/poLORDdfFxScgm95yVA9VmlvtmV4rHffC+7kUk+rywJFx9wZRz73OaWN0i2zvVpoO9xBQav2wDzMNXRXLQRCOWSVm8JdgBO+I53dse78aJnqE0R+i/+8cFI0DZH9rDTsPbL45689p+bXb4WBU/306oabUn1aYerKV4r0OvjQCbe1zed0U4BP58sGVza6iQZscJNuzvvulj/jZzqipLqmahxqKVZ/GJtlPVDHLIOQGavccytf6d8XiXWQW2Vi5f1eg+qaLPFio6ich1BmMP3VgHTryqaiuiRsrtZ4gjgNydLufW/ACX8epxuTCVcr22fUl+yN7jQ0PNBUqGzpJ6C31xnzdBsiDiXi/xF0CE+16PJFV3tapGF49afbF26rg=
